@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Flight_Suite" class="navigator-link">
-              <span class="suite-name border-passed">Flight Suite</span>
+              <span class="suite-name border-failed">Flight Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Flight_Suite" class="navigator-link ">
-                    <span>C:\Users\heman\eclipse-workspace\Selenium_maven2\src\test\resources\testNG.xml</span>
+                    <span>C:\Users\heman\eclipse-workspace\FlightBooking\src\test\resources\testNG.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,21 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Flight_Suite" class="hide-methods passed suite-Flight_Suite"> (hide)</a> <!-- hide-methods passed suite-Flight_Suite -->
-                      <a href="#" panel-name="suite-Flight_Suite" class="show-methods passed suite-Flight_Suite"> (show)</a> <!-- show-methods passed suite-Flight_Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Flight_Suite" class="hide-methods failed suite-Flight_Suite"> (hide)</a> <!-- hide-methods failed suite-Flight_Suite -->
+                      <a href="#" panel-name="suite-Flight_Suite" class="show-methods failed suite-Flight_Suite"> (show)</a> <!-- show-methods failed suite-Flight_Suite -->
                     </span>
-                    <div class="method-list-content passed suite-Flight_Suite">
+                    <div class="method-list-content failed suite-Flight_Suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Flight_Suite" title="Tests.Testcase" class="method navigator-link" hash-for-method="testFlightBooking(Mexico City, London)">testFlightBooking(Mexico City, London)</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Flight_Suite" title="Tests.Testcase" class="method navigator-link" hash-for-method="testFlightBooking">testFlightBooking</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Flight_Suite -->
+                    </div> <!-- method-list-content failed suite-Flight_Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -118,26 +118,35 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Flight_Suite" class="panel Flight_Suite">
-          <div class="suite-Flight_Suite-class-passed">
+          <div class="suite-Flight_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">Tests.Testcase</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testFlightBooking(Mexico City, London)">
-                  </a> <!-- testFlightBooking(Mexico City, London) -->
+                  <a name="testFlightBooking">
+                  </a> <!-- testFlightBooking -->
                   <span class="method-name">testFlightBooking</span>
-                  <span class="parameters">(Mexico City,London)</span>
+                  <div class="stack-trace">java.lang.RuntimeException: java.io.FileNotFoundException: C:\Users\heman\eclipse-workspace\Selenium_maven2\src\test\resources\Excel\Book1.xlsx (The system cannot find the path specified)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: java.io.FileNotFoundException: C:\Users\heman\eclipse-workspace\Selenium_maven2\src\test\resources\Excel\Book1.xlsx (The system cannot find the path specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:157)
+	at Tests.ExcelReading.readExcelData(ExcelReading.java:19)
+	... 25 more
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Flight_Suite-class-passed -->
+          </div> <!-- suite-Flight_Suite-class-failed -->
         </div> <!-- panel Flight_Suite -->
         <div panel-name="test-xml-Flight_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\heman\eclipse-workspace\Selenium_maven2\src\test\resources\testNG.xml</span>
+            <span class="header-content">C:\Users\heman\eclipse-workspace\FlightBooking\src\test\resources\testNG.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -193,12 +202,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testFlightBooking')
 data.setCell(0, 2, 'Tests.Testcase')
-data.setCell(0, 3, 3337);
+data.setCell(0, 3, 0);
 window.suiteTableData['Flight_Suite']= { tableData: data, tableDiv: 'times-div-Flight_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 0 ms</span>
               <div id="times-div-Flight_Suite">
               </div> <!-- times-div-Flight_Suite -->
             </div> <!-- times-div -->
@@ -223,20 +232,6 @@ return data;
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="chronological-class">
-              <div class="chronological-class-name">Tests.Testcase</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">setup(org.testng.TestRunner@388623ad)</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">testFlightBooking(Mexico City, London)</span>
-                <span class="method-start">3938 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">teardown</span>
-                <span class="method-start">7287 ms</span>
-              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
